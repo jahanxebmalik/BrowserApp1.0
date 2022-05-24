@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BrowserApp
+namespace BrowserApp1._0
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -32,8 +27,24 @@ namespace BrowserApp
             MessageBox.Show("This web browser was created by Jahanzeb Malik");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void NavigateToPage()
         {
             webBrowser1.Navigate(textBox1.Text);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NavigateToPage();
+        }
+
+        private void button1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)ConsoleKey.Enter)
+            {
+                NavigateToPage();
+            }
+        }
+
+        
     }
+}
